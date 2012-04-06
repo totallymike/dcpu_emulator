@@ -1,7 +1,9 @@
-all: vm test.0x
+all: vm
 
 vm: vm.c
 	gcc vm.c -o vm
+
+test_bin: test.0x
 
 test.0x: maketest
 	./maketest
