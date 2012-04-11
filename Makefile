@@ -1,5 +1,8 @@
 all: vm
 
+test: vm test_bin
+	./vm test.0x
+
 vm: vm.c
 	gcc vm.c -o vm
 

@@ -4,7 +4,7 @@
 
 /* A and B equate to how far to shift
  * to get that section of the current word.*/
-#define MAX_CYCLES 100000
+#define MAX_CYCLES 1000
 #define A 4
 #define B 10
 
@@ -169,7 +169,12 @@ int main(int argc, char *argv[]) {
   
   while(1) {
     cycles++;
+    if (--iCycles > 0)
+      continue;
+
     current = ram[PC++];
+
+    // Simulate the consumption of cycles.
     switch(get_op(current)) {
 
       case 0x0:
